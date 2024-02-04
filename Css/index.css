@@ -1021,6 +1021,42 @@ a {
 #c661412l1 {
     font-size: 1rem;
 }
+.ed{
+    position: relative;
+}
+.er::after{
+    content: '';
+    position: absolute;
+    bottom: 90%;
+    width: 70%;
+    right: 0;
+    transform: rotate(13deg);
+    aspect-ratio: 3/2;
+    background-image: url(../photo/24307612-178f-44df-9319-e38abc98ce6a.png);
+    background-size: cover;
+}
+
+.er{
+    position: relative;
+}
+
+.ed::after{
+    content: '';
+    position: absolute;
+    bottom: 80%;
+    width: 50%;
+    left: 0;
+    transform: rotate(-13deg);
+    aspect-ratio: 2/2;
+    background-image: url(../photo/46e385c2-3d1a-4c9b-ab1b-4f739328855f.png);
+    background-size: cover;
+}
+
+@media (max-width: 992px) {
+    .ed::after,.er::after{
+        width: 0;
+    }
+}
 
 .c661412l1-img {
     display: flex;
