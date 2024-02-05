@@ -1555,7 +1555,7 @@ a {
     }
 
     .c661412b1-right {
-        height: 350px;
+        height: 450px;
     }
 
     .c661412b1-wrap {
@@ -1578,11 +1578,11 @@ a {
     }
 
     .c661412b1-button>button {
-        padding: 8px 15px;
+        padding: 8px 15px;  
     }
 
     .c661412b1-right {
-        height: 260px;
+        height: 350px;
     }
 }
 
@@ -1594,6 +1594,9 @@ a {
     .c661412b1-button>button {
         padding: 8px 5px;
         font-size: 1em;
+    }
+    .c661412b1-right {
+        height: 260px;
     }
 }
 
@@ -1953,4 +1956,56 @@ button:disabled{
 .imgds>img{
     width: 70%;
     height: auto;
+}
+
+/* dang ky */
+.dangky {
+    position: fixed;
+    bottom: 20px;
+    left: 45%;
+    z-index: 999;
+    animation: d 2s ease infinite;
+}
+
+.dangky a {
+    padding: 10px 20px;
+    font-size: calc(1rem + 0.5vw);
+    background-color: #39B75D;
+    border-radius: 8px;
+    border: 1px solid white;
+    color: white !important;
+    transition: all 0.3s;
+}
+
+.dangky a:hover {
+    cursor: pointer;
+    font-size: calc(1.1rem + 0.5vw);
+}
+
+@keyframes d {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    50% {
+        transform: translateX(0px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@media (max-width: 64rem) {
+    .dangky {
+            left: 35%;
+    }
 }
