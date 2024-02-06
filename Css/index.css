@@ -1124,6 +1124,9 @@ a {
         font-size: 2em;
         text-align: center;
     }
+    .c661412l1-content>div{
+        width: 100%;
+    }
 }
 
 @media (max-width: 992px) {
@@ -1582,6 +1585,9 @@ a {
     .c661412b1-button>button {
         padding: 8px 15px;  
     }
+    .c661412b1-button>a{
+        padding: 8px 15px;  
+    }
 
     .c661412b1-right {
         height: 350px;
@@ -1960,6 +1966,34 @@ button:disabled{
 .imgds>img{
     width: 70%;
     height: auto;
+}
+@media (max-width: 1400px) {
+
+    #Box_1412c>.box {
+        width: 70%;
+    }
+
+}
+@media (max-width: 992px) {
+
+    #Box_1412c>.box {
+        width: 70%;
+    }
+    .imgds{
+        display: none;
+    }
+
+}
+@media (max-width: 600px) {
+    
+    #Box_1412c>.box {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+    .pay img{
+        width: 60%;
+    }
 }
 
 /* dang ky */
