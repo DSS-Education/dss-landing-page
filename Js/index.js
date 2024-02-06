@@ -70,6 +70,7 @@ vam("#formpay").addEventListener("submit", event => {
     formData.append('entry.809420076', document.querySelector("input[name='entry.809420076']").value);
     formData.append('entry.1107779425', document.querySelector("input[name='entry.1107779425']").value);
     formData.append('entry.949156637', document.querySelector("input[name='entry.949156637']").value);
+    formData.append('entry.1156773269', document.querySelector("input[name='entry.1156773269']").value);
     fetch(URL + "?" + formData.toString(), {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -80,6 +81,7 @@ vam("#formpay").addEventListener("submit", event => {
     });
 
     alert("Gửi thông tin thành công");
+    vam("#formpay").reset();
     document.querySelector('.thongtin .nextt').removeAttribute('disabled')
 });
 
