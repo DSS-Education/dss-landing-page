@@ -2035,6 +2035,7 @@ button:disabled{
     box-shadow: 0 2px 4px 0 rgba(158, 158, 158, 0), 0 2px 15px 0 rgba(0, 0, 0, 0.06);
     transform: translateX(200%);
     transition: all .3s linear;
+    font-size: 1rem;
 }
 .tbsuc>div{
     display: flex;
@@ -2065,4 +2066,25 @@ button:disabled{
     color: #5b5b5b;
     justify-self: end;
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .tbsuc{
+        width: 90%;
+        bottom: unset;
+        top: 20px;
+        z-index: 999999;
+        font-size: .8rem;
+    }
+    .tbsuc>div>div{
+        flex: 1;
+    }
+}
+@media (max-width: 400px) {
+    .tbsuc i{
+        color: #39B75D;
+        font-size: 2em;
+        margin: 0 10px;
+    }
+    
 }
