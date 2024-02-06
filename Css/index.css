@@ -698,7 +698,7 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
+    width: 80%;
     height: max-content;
     z-index: 9999999;
     border-radius: 16px;
@@ -713,6 +713,7 @@ a {
     height: auto;
     aspect-ratio: 16/9;
 }
+
 
 /* reponsive */
 @media (max-width: 75em) {
@@ -743,7 +744,7 @@ a {
     }
 
     .c661412b2-iframe_click {
-        width: 70%;
+        width: 98%;
     }
 }
 
@@ -757,17 +758,13 @@ a {
     }
 
     .c661412b2-right>.c661412b2-posi-ab {
-        width: 90%;
+        width: 100%;
         transform: translate(-50%, 0);
         left: 50%;
         border: none;
         clip-path: unset;
         border-radius: 16px;
         box-shadow: 0 10px 50px #0000001a;
-    }
-
-    .c661412b2-iframe_click {
-        width: 90%;
     }
 
     .c661412b2-title {
