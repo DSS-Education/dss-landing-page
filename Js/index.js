@@ -85,6 +85,61 @@ vam("#formpay").addEventListener("submit", event => {
     document.querySelector('.thongtin .nextt').removeAttribute('disabled')
 });
 
+let muagoi = 'https://script.google.com/macros/s/AKfycbwoR48JVVfYWat1sESPGRINjgbFyy20rqoLsUJiE-ZaxJldUw2EdGedBaFOSNQyl6TNSA/exec'
+
+vams('.payclick').forEach((t) => {
+    t.onclick = () => {
+        let g = t.getAttribute('index')
+        let f = '';
+        if (g = 0) {
+            f = 'Gói Basic'
+        } else if (g = 1) {
+            f = 'Gói Plus'
+        } else if (g = 2) {
+            f = 'Gói Pro'
+        }
+        vam('.nextt').onclick = () => {
+            let i = 0
+            vams('.muagoiclass input').forEach((t) => {
+                if (t.value == '') {
+                    i++
+                }
+            })
+            if (i <= 0) {
+                vam('input[name="goi"]').value = f
+                console.log(vam('input[name="goi"]').value);
+                var inputValues = $(".muagoiclass input")
+                    .map(function () {
+                        var input = $(this);
+                        return input.attr("name") + "=" + encodeURIComponent(input.val());
+                    })
+                    .get();
+                var queryString = inputValues.join("&");
+                $.ajax({
+                    type: "GET",
+                    url: muagoi + "?" + queryString,
+                    success: function (response) {
+                        var contentlist = vams('#Box_1412c .content')[1];
+                        var dotlist = vams('#Box_1412c .dot')[1];
+                        var line = vams('#Box_1412c .line>p')[0];
+                        vam("#Box_1412c .content.acc").classList.remove('acc')
+                        contentlist.classList.add('acc')
+                        dotlist.classList.add('acc')
+                        line.setAttribute('style', 'display:block')
+                    },
+                    error: function (error) {
+                        console.log('lỗi');
+                    },
+                });
+
+            } else {
+                alert('Vui lòng kiểm tra lại thông tin, thông tin không được để trống')
+            }
+        }
+    }
+})
+
+
 vam("#dkform").addEventListener("submit", event => {
     // prevent submit
     event.preventDefault();
@@ -108,7 +163,7 @@ vam("#dkform").addEventListener("submit", event => {
 
     vam('.tbsuc').setAttribute('style', 'transform:translateX(0)')
     vam("#dkform").reset();
-    setTimeout(()=>{
+    setTimeout(() => {
         vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
     }, 3000);
 

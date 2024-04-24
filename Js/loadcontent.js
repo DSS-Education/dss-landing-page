@@ -11,14 +11,12 @@ fetchSheet
       Object(content).hasOwnProperty(key) || Object.assign(content, { [key]: [] });
       content[key].push(row);
     });
-    console.log(content.pay);
     vams('.payclick').forEach((box) => {
       box.addEventListener('click', (e) => {
         let index = box.getAttribute('index')
         let list = [];
         list = content.pay[index]
-        console.log(list);
-        vam('.nameds').setAttribute('value',`${list.row1}`)
+        vam('.nameds').setAttribute('value', `${list.row1}`)
         vam('#payqr').src = list.row2
         vam('body').setAttribute('style', 'overflow-y: hidden;')
         vam('#Box_1412c>.background').setAttribute('style', 'display:block')
@@ -58,19 +56,19 @@ fetchSheet
       vam('body').setAttribute('style', 'overflow-y: auto;')
     })
 
-
-    vams('#Box_1412c .nextt').forEach((tab, index) => {
-      var contentlist = vams('#Box_1412c .content')[index + 1];
-      var dotlist = vams('#Box_1412c .dot')[index + 1];
-      var line = vams('#Box_1412c .line>p')[index];
-      tab.addEventListener('click', () => {
-        vam("#Box_1412c .content.acc").classList.remove('acc')
-        contentlist.classList.add('acc')
-        dotlist.classList.add('acc')
-        line.setAttribute('style', 'display:block')
-      })
-    })
-
+    /*
+        vams('#Box_1412c .nextt').forEach((tab, index) => {
+          var contentlist = vams('#Box_1412c .content')[index + 1];
+          var dotlist = vams('#Box_1412c .dot')[index + 1];
+          var line = vams('#Box_1412c .line>p')[index];
+          tab.addEventListener('click', () => {
+            vam("#Box_1412c .content.acc").classList.remove('acc')
+            contentlist.classList.add('acc')
+            dotlist.classList.add('acc')
+            line.setAttribute('style', 'display:block')
+          })
+        })
+    */
     vams('#Box_1412c .back').forEach((tab, index) => {
       var contentlist = vams('#Box_1412c .content')[index + 1];
       var contentback = vams('#Box_1412c .content')[index];

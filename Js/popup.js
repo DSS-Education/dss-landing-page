@@ -5,7 +5,7 @@ function createPopup() {
   `;
   document.body.appendChild(popup);
 
-  document.querySelector('#popup img').addEventListener('click', function() {
+  document.querySelector('#popup img').addEventListener('click', function () {
     window.open('https://tr1nh-demo.web.app/demo', '_blank');
     closePopup();
   });
@@ -17,4 +17,4 @@ function createPopup() {
   }
 }
 
-createPopup();
+createPopup(); d
