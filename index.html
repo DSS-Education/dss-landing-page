@@ -23,6 +23,51 @@
 </head>
 
 <body>
+    <div class="popup_khoahoc">
+        <div class="background_popup" style="display: none;"></div>
+        <div class="popupmain" style="display: none;">
+            <div style="display: flex;">
+                <div class="intropopup" style="flex: 1;">
+                    <h1 style="font-size: 2.5rem;font-weight: 600;">
+                        Đăng ký tư vấn lộ trình học
+                    </h1>
+                    <p style="font-size: 1.2rem;padding: 10px 0;">Bạn hãy để lại thông tin, IELTS Hacker sẽ liên hệ tư
+                        vấn
+                        cho mình sớm
+                        nha!</p>
+                    <img src="./photo/Thiết kế chưa có tên (5).png" alt="">
+                </div>
+                <div class="formpopup" style="flex: 1.3;display: flex;
+                flex-direction: column;
+                justify-content: space-between;">
+                    <h1>Tên đầy đủ <span style="color: red;">*</span></h1>
+                    <input class="popupforms" type="text" name="name" placeholder="Nhập họ và tên của bạn">
+                    <h1>Số điện thoại <span style="color: red;">*</span></h1>
+                    <input class="popupforms" type="text" name="phone" placeholder="Nhập số điện thoại của bạn">
+                    <h1>Email</h1>
+                    <input class="popupforms" type="email" name="email" placeholder="Nhập Email của bạn">
+                    <h1>Lựa chọn khóa học tư vấn</h1>
+                    <fieldset style="margin: 10px 0;">
+                        <div>
+                            <input id="Foundation" type="radio" name="drone" value="Foundation 1.0 - 3.5 IELTS"
+                                checked />
+                            <label>Foundation 1.0 - 3.5 IELTS</label>
+                        </div>
+                        <div>
+                            <input id="Intermediate" type="radio" name="drone" value="Intermediate 3.5 - 5.0 IELTS" />
+                            <label>Intermediate 3.5 - 5.0 IELTS</label>
+                        </div>
+
+                        <div>
+                            <input id="Advanced" type="radio" name="drone" value="Advanced 5.5 -7.0 IELTS" />
+                            <label>Advanced 5.5 -7.0 IELTS</label>
+                        </div>
+                    </fieldset>
+                    <input class="btn btn-vam" id="popuptuvan" type="submit" value="Gửi thông tin đăng ký">
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="loadweb">
         <div></div>
     </div>
@@ -151,13 +196,14 @@
         <div class="main" style="height: max-content;width: 100%">
             <section id="video1412a1">
                 <div class="video1412a1-video">
-                    <video autoplay loop width="100%" height="600px" playsinline muted style="height: 600px !important;object-fit:cover;object-position:center;overflow-clip-margin: content-box;
+                    <video autoplay loop width="100%" height="600px" style="object-position: top;" playsinline muted
+                        style="height: 600px !important;object-fit:cover;object-position:center;overflow-clip-margin: content-box;
             overflow: clip;" ;>
-                        <source src="./photo/imtro.mp4" type="video/mp4">
+                        <source src="./photo/intro.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video1412a1-content">
-                    <h1>IELTS Hackers - Tự học IELTS cùng AI</h1>
+                    <h1>IELTS Hacker - Tự học IELTS cùng AI</h1>
                 </div>
             </section>
             <section id="wrapsection1">
@@ -168,12 +214,12 @@
                                 <div class="intro1412b1-befor"></div>
                                 <div class="intro1412b1-text">
                                     <h4>
-                                        <p>Khóa học</p>Ielts Hackers
+                                        <p>Khóa học</p>Ielts Hacker
                                     </h4>
-                                    <h2>IELTS HACKERS</h2>
+                                    <h2>IELTS HACKER</h2>
                                     <p>
                                         Để đáp ứng nhu cầu ngày càng tăng về chất lượng IELTS và các kỳ thi năng lực
-                                        tiếng Anh khác, IELTS Hackers được tạo ra như một nền tảng học tập trực tuyến
+                                        tiếng Anh khác, IELTS Hacker được tạo ra như một nền tảng học tập trực tuyến
                                         toàn diện giúp giải quyết mọi vấn đề của người dùng.
                                     </p>
                                 </div>
@@ -193,26 +239,28 @@
                 <div class="c661412b1 container">
                     <div class="row c661412b1-wrap">
                         <div class="col-lg-6 c661412b1-left">
-                            <h2 style="text-transform: uppercase;">Ứng dụng IELTS Hackers</h2>
+                            <h2 style="text-transform: uppercase;">Ứng dụng IELTS Hacker</h2>
                             <p style="margin: 20px 0;">
-                                IELTS Hackers hướng tới việc cung cấp trải nghiệm học tập phong phú, có tính
+                                IELTS Hacker hướng tới việc cung cấp trải nghiệm học tập phong phú, có tính
                                 tương tác cao, khiến việc học IELTS trở nên gần gũi, dễ tiếp cận. Nền tảng sẽ
                                 kết hợp nhiều tài nguyên đa phương tiện, bao gồm các bài thuyết trình bằng
                                 video, các hoạt động tương tác và hệ thống phản hồi được hỗ trợ bởi AI.
                             </p>
-                            <div class="c661412b1-button">
-                                <a href="#wrapsection2">Tìm hiểu thêm</a>
-                                <button class="c661412b1button-click"><i class="bi bi-play-circle"></i>Xem video về
-                                    chúng tôi</button>
+                            <div class="c661412b1-button" style="display: flex;gap: 10px;color: white;">
+                                <a class="popup_button" index="Foundation">Foundation<br> 1.0 - 3.5 IELTS</a>
+                                <a class="popup_button" index="Intermediate">Intermediate<br> 3.5 - 5.0 IELTS</a>
+                                <a class="popup_button" index="Advanced">Advanced<br> 5.5 -7.0 IELTS</a>
                             </div>
                             <p style="color: var(--color-home);">Learn endlessly, create boundlessly, care inclusively.
                             </p>
                         </div>
                         <div class="col-lg-6 c661412b1-right">
                             <img id="c661412b1-img1"
-                                src="https://w.ladicdn.com/s600x700/5d63b16bae21e86028a52d0a/group-6930-20231010070558-vl729.png">
+                                style="border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+                                src="./photo/z5402583768149_5a1300087cd46a865d3853335bdddcab.jpg">
                             <img id="c661412b1-img2"
-                                src="https://w.ladicdn.com/s650x700/5d63b16bae21e86028a52d0a/group-6932-1-20231010070557-gdymg.png">
+                                style="border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+                                src="./photo/z5402583766826_952c01219ed21a854393a0bb68bf6d56.jpg">
                         </div>
                     </div>
                 </div>
@@ -225,12 +273,12 @@
                     <section id="c661412l1">
                         <div class="c661412l1">
                             <div class="c661412l1-wrap container">
-                                <p style="text-transform: uppercase;">- Ielts Hackers -</p>
+                                <p style="text-transform: uppercase;">- Ielts Hacker -</p>
                                 <h1>ĐẶC QUYỀN TRONG THỜI GIAN ĐĂNG KÝ TRẢI NGHIỆM</h1>
                                 <div class="row re">
                                     <div class="col-lg-7 c661412l1-img">
-                                        <img style="transform: rotate(-1deg)"
-                                            src="https://edutrip.edu.vn/wp-content/uploads/2021/01/50GB-Tai-Lieu-Tieng-Anh-1.jpg">
+                                        <img style="transform: rotate(-1deg);object-position: right;"
+                                            src="./photo/Screenshot 2024-05-02 185449.png">
                                     </div>
                                     <div class="col-lg-5 c661412l1-content">
                                         <div>
@@ -437,7 +485,7 @@
                     <section id="fttop1412a1">
                         <div class="fttop1412a1">
                             <div class="fttop1412a1-wrap container">
-                                <h1>IELTS Hackers<br>
+                                <h1>IELTS Hacker<br>
                                     Học IELTS hiệu quả hơn cùng AI</h1>
                             </div>
                         </div>

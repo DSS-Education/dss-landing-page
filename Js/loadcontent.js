@@ -84,3 +84,72 @@ fetchSheet
     })
 
   });
+
+vams('.popup_button').forEach((t) => {
+  t.onclick = () => {
+    console.log(t.getAttribute('index'));
+    if (t.getAttribute('index') == 'Foundation') {
+      console.log('hello');
+      vams('fieldset input[checked]').forEach((d) => {
+        d.removeAttribute('checked');
+      })
+      vam('#Foundation').setAttribute('checked', '')
+    }
+    else if (t.getAttribute('index') == 'Intermediate') {
+      vams('fieldset input[checked]').forEach((d) => {
+        d.removeAttribute('checked');
+      })
+      vam('#Intermediate').setAttribute('checked', '')
+    }
+    else if (t.getAttribute('index') == 'Advanced') {
+      vams('fieldset input[checked]').forEach((d) => {
+        d.removeAttribute('checked');
+      })
+      vam('#Advanced').setAttribute('checked', '')
+    }
+    vam('.background_popup').setAttribute('style', 'display:unset')
+    vam('.popupmain').setAttribute('style', 'display:unset')
+    vam('.background_popup').onclick = () => {
+      vam('.background_popup').setAttribute('style', 'display:none')
+      vam('.popupmain').setAttribute('style', 'display:none')
+    }
+  }
+})
+
+var urlappscript = 'https://script.google.com/macros/s/AKfycbxm7PkZnodeLC1I7Lv2QtzWEr-EuiRJ94aDICI12trDK84SjOYZNF8KyLO0fd0rsCKO7w/exec';
+$(document).ready(function () {
+  $("#popuptuvan").click(function () {
+    // Select tất cả
+    var inputValues = $(".popupforms")
+      .map(function () {
+        var input = $(this);
+        return input.attr("name") + "=" + encodeURIComponent(input.val());
+      })
+      .get();
+    // tạo 
+    var queryString = inputValues.join("&");
+    console.log(queryString);
+    let c = vam('fieldset input[checked]').value
+
+    // Log the result or use it as needed
+    var fullName = document.querySelector(`.popupforms[name="name"]`).value;
+    var fullsdt = document.querySelector(`.popupforms[name="phone"]`).value;
+
+
+    if (fullName === "" || fullsdt === "") {
+      alert('Vui lòng điền đầy đủ thông tin yêu cầu')
+    } else {
+      // hiển thị 
+      $.ajax({
+        type: "GET",
+        url: urlappscript + "?" + queryString + '&' + `kh=${c}`,
+        success: function (response) {
+          alert('Đã gửi thành công thông tin')
+        },
+        error: function (error) {
+          console.log('lỗi');
+        },
+      });
+    }
+  });
+});

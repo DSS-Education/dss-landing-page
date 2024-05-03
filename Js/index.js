@@ -22,8 +22,11 @@ vam('.bg').addEventListener('click', () => {
 vam('#c661412b2-iframe_click').addEventListener('click', () => {
     vam('.c661412b2-background_click').setAttribute('style', 'display:flex')
     vam('.c661412b2-iframe_click').setAttribute('style', 'display:flex')
-    var c661412b2Iframe = `<iframe  class="c661412b2-iframe" src="https://www.youtube.com/embed/2rq6Vph2Sfc?si=xLhapCgHCTZxgnuT" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+    var c661412b2Iframe = `<video autoplay loop width="100%" height="600px" style="object-position: top;" playsinline muted
+    style="height: 600px !important;object-fit:cover;object-position:center;overflow-clip-margin: content-box;
+overflow: clip;" ;>
+    <source src="./photo/intro.mp4" type="video/mp4">
+</video>`
     vam('.c661412b2-iframe_click').innerHTML = c661412b2Iframe
     vam('.c661412b2-background_click').addEventListener('click', () => {
         vam('.c661412b2-background_click').setAttribute('style', 'display:none')
@@ -35,8 +38,11 @@ vam('#c661412b2-iframe_click').addEventListener('click', () => {
 vam('#c661412b2-iframe_click').addEventListener('click', () => {
     vam('.c661412b2-background_click').setAttribute('style', 'display:flex')
     vam('.c661412b2-iframe_click').setAttribute('style', 'display:flex')
-    var c661412b2Iframe = `<iframe  class="c661412b2-iframe" src="https://www.youtube.com/embed/Lx-E2F1ejCA?si=I-kSBhKVM2oUl_o3" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+    var c661412b2Iframe = `<video autoplay loop width="100%" height="600px" controls style="object-position: top;" playsinline muted
+    style="height: 600px !important;object-fit:cover;object-position:center;overflow-clip-margin: content-box;
+overflow: clip;" ;>
+    <source src="./photo/intro.mp4" type="video/mp4">
+</video>`
     vam('.c661412b2-iframe_click').innerHTML = c661412b2Iframe
     vam('.c661412b2-background_click').addEventListener('click', () => {
         vam('.c661412b2-background_click').setAttribute('style', 'display:none')
@@ -48,8 +54,11 @@ vam('#c661412b2-iframe_click').addEventListener('click', () => {
 vam('.c661412b1button-click').addEventListener('click', () => {
     vam('.c661412b1-background_click').setAttribute('style', 'display:flex')
     vam('.c661412b1-iframe_click').setAttribute('style', 'display:flex')
-    var c661412b1Iframe = `<iframe  class="c661412b1-iframe" src="https://www.youtube.com/embed/Lx-E2F1ejCA?si=I-kSBhKVM2oUl_o3" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+    var c661412b1Iframe = `<video autoplay loop width="100%" height="600px" controls style="object-position: top;" playsinline muted
+    style="height: 600px !important;object-fit:cover;object-position:center;overflow-clip-margin: content-box;
+overflow: clip;" ;>
+    <source src="./photo/intro.mp4" type="video/mp4">
+</video>`
     vam('.c661412b1-iframe_click').innerHTML = c661412b1Iframe
     vam('.c661412b1-background_click').addEventListener('click', () => {
         vam('.c661412b1-background_click').setAttribute('style', 'display:none')

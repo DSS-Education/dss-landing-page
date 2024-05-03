@@ -1469,6 +1469,7 @@ label span {
     border-radius: 5px;
     font-size: 1.1em;
     transition: all 0.3s linear;
+    cursor: pointer;
 }
 
 .c661412b1-button>a {
@@ -1719,7 +1720,8 @@ fttop1412a1
 }
 
 /* box */
-#Box_1412c>.background {
+#Box_1412c>.background,
+.background_popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -2171,4 +2173,36 @@ button:disabled {
         margin: 0 10px;
     }
 
+}
+
+.popupmain {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: max-content;
+    transform: translate(-50%, -50%);
+    background-color: rgb(235 245 255);
+    z-index: 999999999999999999;
+    width: 60%;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+    padding: 30px;
+    border-radius: 16px;
+}
+
+.formpopup {
+    background-color: white;
+    border-radius: 8px;
+    flex: 1.3;
+    padding: 1rem;
+}
+
+.formpopup>input {
+    border: 1px solid rgb(243 244 246);
+    outline: none;
+    padding: 10px;
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
 }
