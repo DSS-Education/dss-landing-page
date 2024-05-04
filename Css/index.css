@@ -194,7 +194,7 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     height: max-content;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(2px);
 }
 

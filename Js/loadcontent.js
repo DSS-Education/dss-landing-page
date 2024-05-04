@@ -85,35 +85,56 @@ fetchSheet
 
   });
 
-vams('.popup_button').forEach((t) => {
-  t.onclick = () => {
-    console.log(t.getAttribute('index'));
-    if (t.getAttribute('index') == 'Foundation') {
-      console.log('hello');
-      vams('fieldset input[checked]').forEach((d) => {
-        d.removeAttribute('checked');
-      })
-      vam('#Foundation').setAttribute('checked', '')
-    }
-    else if (t.getAttribute('index') == 'Intermediate') {
-      vams('fieldset input[checked]').forEach((d) => {
-        d.removeAttribute('checked');
-      })
-      vam('#Intermediate').setAttribute('checked', '')
-    }
-    else if (t.getAttribute('index') == 'Advanced') {
-      vams('fieldset input[checked]').forEach((d) => {
-        d.removeAttribute('checked');
-      })
-      vam('#Advanced').setAttribute('checked', '')
-    }
-    vam('.background_popup').setAttribute('style', 'display:unset')
-    vam('.popupmain').setAttribute('style', 'display:unset')
-    vam('.background_popup').onclick = () => {
-      vam('.background_popup').setAttribute('style', 'display:none')
-      vam('.popupmain').setAttribute('style', 'display:none')
-    }
+vam('#tienganhcoban').onclick = () => {
+  let f =
+    `<div>
+    <input id="Foundation" type="radio" name="drone" value="Foundation" checked />
+    <label>Foundation</label>
+  </div>
+  <div>
+    <input id="Intermediate" type="radio" name="drone" value="Intermediate" />
+    <label>Intermediate</label>
+  </div>
+  <div>
+    <input id="Advanced" type="radio" name="drone" value="Advanced" />
+    <label>Advanced</label>
+  </div>`
+  vam('#fieldset').innerHTML = f;
+  vam('.background_popup').setAttribute('style', 'display:unset')
+  vam('.popupmain').setAttribute('style', 'display:unset')
+  vam('.background_popup').onclick = () => {
+    vam('.background_popup').setAttribute('style', 'display:none')
+    vam('.popupmain').setAttribute('style', 'display:none')
   }
+}
+
+
+
+vam('#ielts').onclick = (t) => {
+  let f =
+    `<div>
+  <input id="Foundation" type="radio" name="drone" value=" IELTS 1: 1.0-3.5" checked />
+  <label> IELTS 1: 1.0-3.5</label>
+</div>
+<div>
+  <input id="Intermediate" type="radio" name="drone" value="IELTS 2: 3.5-5.0" />
+  <label>IELTS 2: 3.5-5.0</label>
+</div>
+<div>
+  <input id="Advanced" type="radio" name="drone" value="IELTS 3: 5.5-7.0" />
+  <label>IELTS 3: 5.5-7.0</label>
+</div>`
+  vam('#fieldset').innerHTML = f;
+  vam('.background_popup').setAttribute('style', 'display:unset')
+  vam('.popupmain').setAttribute('style', 'display:unset')
+  vam('.background_popup').onclick = () => {
+    vam('.background_popup').setAttribute('style', 'display:none')
+    vam('.popupmain').setAttribute('style', 'display:none')
+  }
+}
+
+$("#popuptuvan").click(function () {
+
 })
 
 var urlappscript = 'https://script.google.com/macros/s/AKfycbxm7PkZnodeLC1I7Lv2QtzWEr-EuiRJ94aDICI12trDK84SjOYZNF8KyLO0fd0rsCKO7w/exec';
@@ -129,7 +150,17 @@ $(document).ready(function () {
     // tạo 
     var queryString = inputValues.join("&");
     console.log(queryString);
-    let c = vam('fieldset input[checked]').value
+
+    var radios = document.querySelectorAll('input[name="drone"]');
+    console.log(radios);
+    var selectedValue;
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        selectedValue = radios[i].value;
+        break;
+      }
+    }
+    let c = selectedValue
 
     // Log the result or use it as needed
     var fullName = document.querySelector(`.popupforms[name="name"]`).value;
