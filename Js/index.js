@@ -3,6 +3,7 @@ const vams = document.querySelectorAll.bind(document);
 
 window.onload = () => {
     vam('.loadweb').remove();
+    vam('.video1412a1-content').setAttribute('style', 'animation: introwweb 3s linear forwards;')
 };
 
 vam('.openmenu').addEventListener('click', () => {
