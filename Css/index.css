@@ -2191,6 +2191,18 @@ button:disabled {
     border-radius: 16px;
 }
 
+@media (max-width:1500px) {
+    .popupmain {
+        width: 80%;
+    }
+}
+
+@media (max-width:1000px) {
+    .intropopup {
+        display: none;
+    }
+}
+
 .formpopup {
     background-color: white;
     border-radius: 8px;
