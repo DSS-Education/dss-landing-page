@@ -184,7 +184,7 @@ a {
 }
 
 .video1412a1-video {
-    height: 600px;
+    height: unset !important;
 }
 
 .video1412a1-content {
@@ -305,7 +305,7 @@ a {
     position: absolute;
     height: 400px;
     background-color: white;
-    top: -100px;
+    top: -50px;
     width: 96%;
     left: 50%;
     transform: translate(-50%);
@@ -1578,7 +1578,7 @@ label span {
     }
 
     .c661412b1-right {
-        height: 450px;
+        height: 650px;
     }
 
     .c661412b1-wrap {
@@ -1613,7 +1613,7 @@ label span {
     }
 
     .c661412b1-right {
-        height: 350px;
+        height: 450px;
     }
 }
 
@@ -1628,7 +1628,7 @@ label span {
     }
 
     .c661412b1-right {
-        height: 260px;
+        height: 300px;
     }
 }
 
