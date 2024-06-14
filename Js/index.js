@@ -162,8 +162,8 @@ vams('.payclick').forEach((t) => {
                             if (data.status === 'PAID') {
                                 alert('Thanh toán thành công, thông tin tài khoản đăng nhập đã được gửi đến email của bạn');
                                 clearInterval(interval);
-                            } else {
-                                alert(data.status);
+                            } else if (data.status === 'CANCELLED') {
+                                alert("Đơn hàng của bạn đã bị hủy bỏ, vui lòng thử lại");
                             }
                         }).catch(err => {
                             console.log(err)
