@@ -154,7 +154,7 @@ vams('.payclick').forEach((t) => {
 
                         await fetch(`https://dss-api.s4h.edu.vn/payment/check?orderCode=${data.orderCode}`).then(res => res.json()).then(data => {
                             if (data.status === 'PAID') {
-                                alert('Thanh toán thành công');
+                                alert('Thanh toán thành công, thông tin tài khoản đăng nhập đã được gửi đến email của bạn');
                                 clearInterval(interval);
                             }
                         }).catch(err => {
