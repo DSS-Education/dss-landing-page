@@ -142,8 +142,6 @@ vams('.payclick').forEach((t) => {
 
                     qrcode.makeCode(data.qrCode);
                     vam('#payqr').setAttribute('style', 'display:block;')
-                    vam('#payqr > canvas').setAttribute('style', 'display:block; margin: 0 auto')
-                    vam('#payqr > img').setAttribute('style', 'display:none')
                     vam('#payAccountName').innerHTML = data.accountName
                     vam('#payAccountNumber').innerHTML = data.accountNumber
                     vam('#payAmount').innerHTML = data.amount
@@ -151,6 +149,9 @@ vams('.payclick').forEach((t) => {
                 
                     vam("#Box_1412c .content.acc").classList.remove('acc')
                     vam('#Box_1412c .content.pay').classList.add('acc');
+
+                    vam('#payqr > canvas').setAttribute('style', 'display:block; margin: 0 auto')
+                    vam('#payqr > img').setAttribute('style', 'display:none')
                 
                     let isChecking = false;
                     let interval = setInterval(async () => {
@@ -161,6 +162,8 @@ vams('.payclick').forEach((t) => {
                             if (data.status === 'PAID') {
                                 alert('Thanh toán thành công, thông tin tài khoản đăng nhập đã được gửi đến email của bạn');
                                 clearInterval(interval);
+                            } else {
+                                alert(data.status);
                             }
                         }).catch(err => {
                             console.log(err)
