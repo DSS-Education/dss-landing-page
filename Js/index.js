@@ -142,7 +142,7 @@ vams('.payclick').forEach((t) => {
                     vam('#payAccountName').innerHTML = data.accountName
                     vam('#payAccountNumber').innerHTML = data.accountNumber
                     vam('#payAmount').innerHTML = data.amount
-                    vam('#payUrl').setAttribute('href', data.checkOutUrl);
+                    vam('#payUrl').setAttribute('href', data.checkoutUrl);
                 
                     vam('.content.thongtin.acc').classList.remove('acc');
                     vam('.content.pay').classList.add('acc');
