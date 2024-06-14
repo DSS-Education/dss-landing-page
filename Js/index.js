@@ -166,7 +166,7 @@ vams('.payclick').forEach((t) => {
 
 
                 }).catch(err => {
-                    console.log('lỗi')
+                    console.log(err)
                 })
 
             } else {
