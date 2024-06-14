@@ -95,7 +95,7 @@ vam("#formpay").addEventListener("submit", event => {
 });
 
 let muagoi = 'https://script.google.com/macros/s/AKfycbwoR48JVVfYWat1sESPGRINjgbFyy20rqoLsUJiE-ZaxJldUw2EdGedBaFOSNQyl6TNSA/exec'
-let qrcode = new QrCode("payqr", {
+let qrcode = new QRCode("payqr", {
     width: 256,
     height: 256,
 });
