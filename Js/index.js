@@ -115,7 +115,7 @@ vams('.payclick').forEach((t) => {
                 }
             })
             if (i <= 0) {
-                fetch("https://dss-api.s4h.edu.vn", {
+                fetch("https://dss-api.s4h.edu.vn/payment/create", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
