@@ -125,7 +125,7 @@ vams('.payclick').forEach((t) => {
                         "phone": vam('.muagoiclass input[name="phone"]').value,
                         "email": vam('.muagoiclass input[name="email"]').value,
                         "location": vam('.muagoiclass input[name="address"]').value,
-                        "packageId": f
+                        "packageId": g
                     })
                 }).then(res => res.json()).then(data => {
                     // navigation
