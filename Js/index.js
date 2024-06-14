@@ -139,10 +139,10 @@ vams('.payclick').forEach((t) => {
 
                     new QRCode(document.getElementById("payqr"), data.qrCode);
                     vam('.payqr').setAttribute('style', 'display:block')
-                    vam('payAccountName').innerHTML = data.accountName
-                    vam('payAccountNumber').innerHTML = data.accountNumber
-                    vam('payAmount').innerHTML = data.amount
-                    vam('payUrl').setAttribute('href', data.checkOutUrl);
+                    vam('#payAccountName').innerHTML = data.accountName
+                    vam('#payAccountNumber').innerHTML = data.accountNumber
+                    vam('#payAmount').innerHTML = data.amount
+                    vam('#payUrl').setAttribute('href', data.checkOutUrl);
                 
                     vam('.content.thongtin.acc').classList.remove('acc');
                     vam('.content.pay').classList.add('acc');
