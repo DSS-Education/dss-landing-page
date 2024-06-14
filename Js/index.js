@@ -95,6 +95,10 @@ vam("#formpay").addEventListener("submit", event => {
 });
 
 let muagoi = 'https://script.google.com/macros/s/AKfycbwoR48JVVfYWat1sESPGRINjgbFyy20rqoLsUJiE-ZaxJldUw2EdGedBaFOSNQyl6TNSA/exec'
+let qrcode = new QrCode("payqr", {
+    width: 256,
+    height: 256,
+});
 
 vams('.payclick').forEach((t) => {
     t.onclick = () => {
@@ -132,20 +136,19 @@ vams('.payclick').forEach((t) => {
                     var contentlist = vams('#Box_1412c .content')[1];
                     var dotlist = vams('#Box_1412c .dot')[1];
                     var line = vams('#Box_1412c .line>p')[0];
-                    vam("#Box_1412c .content.acc").classList.remove('acc')
                     contentlist.classList.add('acc')
                     dotlist.classList.add('acc')
                     line.setAttribute('style', 'display:block')
 
-                    new QRCode(document.getElementById("payqr"), data.qrCode);
+                    qrcode.makeCode(data.qrCode);
                     vam('#payqr').setAttribute('style', 'display:block')
                     vam('#payAccountName').innerHTML = data.accountName
                     vam('#payAccountNumber').innerHTML = data.accountNumber
                     vam('#payAmount').innerHTML = data.amount
                     vam('#payUrl').setAttribute('href', data.checkoutUrl);
                 
-                    vam('.content.thongtin.acc').classList.remove('acc');
-                    vam('.content.pay').classList.add('acc');
+                    vam("#Box_1412c .content.acc").classList.remove('acc')
+                    vam('#Box_1412c .content.pay').classList.add('acc');
                 
                     let isChecking = false;
                     let interval = setInterval(async () => {
