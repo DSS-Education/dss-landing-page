@@ -116,7 +116,7 @@ vams('.payclick').forEach((t) => {
             })
             if (i <= 0) {
                 fetch("https://dss-api.s4h.edu.vn", {
-                    method: POST,
+                    method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
                     },
