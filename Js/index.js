@@ -141,7 +141,9 @@ vams('.payclick').forEach((t) => {
                     line.setAttribute('style', 'display:block')
 
                     qrcode.makeCode(data.qrCode);
-                    vam('#payqr').setAttribute('style', 'display:block')
+                    vam('#payqr').setAttribute('style', 'display:block;')
+                    vam('#payqr > canvas').setAttribute('style', 'display:block; margin: 0 auto')
+                    vam('#payqr > img').setAttribute('style', 'display:none')
                     vam('#payAccountName').innerHTML = data.accountName
                     vam('#payAccountNumber').innerHTML = data.accountNumber
                     vam('#payAmount').innerHTML = data.amount
