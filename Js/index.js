@@ -169,7 +169,14 @@ vams('.payclick').forEach((t) => {
                         isChecking = false;
                     }, 1000);
 
-
+                    vam(".back").onclick = () => {
+                        vam("#Box_1412c .content.pay").classList.remove('acc')
+                        vam("#Box_1412c .content.acc").classList.add('acc')
+                        vam('#payqr').setAttribute('style', 'display:none;')
+                        vam('#payqr > canvas').setAttribute('style', 'display:none')
+                        vam('#payqr > img').setAttribute('style', 'display:none')
+                        clearInterval(interval);
+                    }
                 }).catch(err => {
                     console.log(err)
                 })
