@@ -128,9 +128,12 @@
                     <div>
                         <h1>Quét mã QR để thanh toán
                         </h1>
-                        <img id="payqr" src="photo/Screenshot 2024-02-06 194036.png" alt="">
-                        <h2><span>Account name: </span>***</h2>
-                        <h2><span>MB bank: </span> ************</h2>
+                        <!-- <img id="payqr" src="photo/Screenshot 2024-02-06 194036.png" alt=""> -->
+                        <div id="payqr"></div>
+                        <h2><span>Account name: </span><span id="payAccountName">***</span></h2>
+                        <h2><span>Account number: </span><span id="payAccountNumber">************</span></h2>
+                        <h2><span>Price: </span><span id="payAmount">***</span></h2>
+                        <h2><a target="_blank" id="payUrl">Hoặc click vào đây để đến trang thanh toán</a></h2>
                         <div class="thongtin-bottom">
                             <div class="border-top"></div>
                             <div class="thongtin-contact">
@@ -598,6 +601,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdn.statically.io/gh/tr1nh/fetch-sheet.js/master/fetch-sheet.min.js"></script>
     <!-- Main Js -->
+    <script src="Js/qrcode.min.js"></script>
     <script src="Js/index.js"></script>
     <script src="Js/loadcontent.js"></script>
     <script src="Js/popup.js"></script>

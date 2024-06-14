@@ -52,21 +52,21 @@ overflow: clip;" ;>
     })
 })
 
-vam('.c661412b1button-click').addEventListener('click', () => {
-    vam('.c661412b1-background_click').setAttribute('style', 'display:flex')
-    vam('.c661412b1-iframe_click').setAttribute('style', 'display:flex')
-    var c661412b1Iframe = `<video autoplay loop width="100%" height="600px" controls style="object-position: top;" playsinline muted
-    style="height: 600px !important;object-fit:cover;object-position:center;overflow-clip-margin: content-box;
-overflow: clip;" ;>
-    <source src="./photo/intro.mp4" type="video/mp4">
-</video>`
-    vam('.c661412b1-iframe_click').innerHTML = c661412b1Iframe
-    vam('.c661412b1-background_click').addEventListener('click', () => {
-        vam('.c661412b1-background_click').setAttribute('style', 'display:none')
-        vam('.c661412b1-iframe_click').setAttribute('style', 'display:none')
-        vam('.c661412b1-iframe').remove()
-    })
-})
+// vam('.c661412b1button-click').addEventListener('click', () => {
+//     vam('.c661412b1-background_click').setAttribute('style', 'display:flex')
+//     vam('.c661412b1-iframe_click').setAttribute('style', 'display:flex')
+//     var c661412b1Iframe = `<video autoplay loop width="100%" height="600px" controls style="object-position: top;" playsinline muted
+//     style="height: 600px !important;object-fit:cover;object-position:center;overflow-clip-margin: content-box;
+// overflow: clip;" ;>
+//     <source src="./photo/intro.mp4" type="video/mp4">
+// </video>`
+//     vam('.c661412b1-iframe_click').innerHTML = c661412b1Iframe
+//     vam('.c661412b1-background_click').addEventListener('click', () => {
+//         vam('.c661412b1-background_click').setAttribute('style', 'display:none')
+//         vam('.c661412b1-iframe_click').setAttribute('style', 'display:none')
+//         vam('.c661412b1-iframe').remove()
+//     })
+// })
 
 vam("#formpay").addEventListener("submit", event => {
     // prevent submit
@@ -86,8 +86,7 @@ vam("#formpay").addEventListener("submit", event => {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
         },
-        method: "post",
-        "mode": "cors"
+        method: "post"
     });
 
     alert("Gửi thông tin thành công");
@@ -101,11 +100,11 @@ vams('.payclick').forEach((t) => {
     t.onclick = () => {
         let g = t.getAttribute('index')
         let f = '';
-        if (g = 0) {
+        if (g = 1) {
             f = 'Gói Basic'
-        } else if (g = 1) {
-            f = 'Gói Plus'
         } else if (g = 2) {
+            f = 'Gói Plus'
+        } else if (g = 3 ) {
             f = 'Gói Pro'
         }
         vam('.nextt').onclick = () => {
@@ -116,34 +115,62 @@ vams('.payclick').forEach((t) => {
                 }
             })
             if (i <= 0) {
-                vam('input[name="goi"]').value = f
-                console.log(vam('input[name="goi"]').value);
-                var inputValues = $(".muagoiclass input")
-                    .map(function () {
-                        var input = $(this);
-                        return input.attr("name") + "=" + encodeURIComponent(input.val());
+                fetch("https://dss-api.s4h.edu.vn", {
+                    method: POST,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "fullName": vam('.muagoiclass input[name="name"]').value,
+                        "phone": vam('.muagoiclass input[name="phone"]').value,
+                        "email": vam('.muagoiclass input[name="email"]').value,
+                        "location": vam('.muagoiclass input[name="address"]').value,
+                        "packageId": f
                     })
-                    .get();
-                var queryString = inputValues.join("&");
-                $.ajax({
-                    type: "GET",
-                    url: muagoi + "?" + queryString,
-                    success: function (response) {
-                        var contentlist = vams('#Box_1412c .content')[1];
-                        var dotlist = vams('#Box_1412c .dot')[1];
-                        var line = vams('#Box_1412c .line>p')[0];
-                        vam("#Box_1412c .content.acc").classList.remove('acc')
-                        contentlist.classList.add('acc')
-                        dotlist.classList.add('acc')
-                        line.setAttribute('style', 'display:block')
-                    },
-                    error: function (error) {
-                        console.log('lỗi');
-                    },
-                });
+                }).then(res => res.json()).then(data => {
+                    // navigation
+                    var contentlist = vams('#Box_1412c .content')[1];
+                    var dotlist = vams('#Box_1412c .dot')[1];
+                    var line = vams('#Box_1412c .line>p')[0];
+                    vam("#Box_1412c .content.acc").classList.remove('acc')
+                    contentlist.classList.add('acc')
+                    dotlist.classList.add('acc')
+                    line.setAttribute('style', 'display:block')
+
+                    new QRCode(document.getElementById("payqr"), data.qrCode);
+                    vam('.payqr').setAttribute('style', 'display:block')
+                    vam('payAccountName').innerHTML = data.accountName
+                    vam('payAccountNumber').innerHTML = data.accountNumber
+                    vam('payAmount').innerHTML = data.amount
+                    vam('payUrl').setAttribute('href', data.checkOutUrl);
+                
+                    vam('.content.thongtin.acc').classList.remove('acc');
+                    vam('.content.pay').classList.add('acc');
+                
+                    let isChecking = false;
+                    let interval = setInterval(async () => {
+                        if (isChecking) return;
+                        isChecking = true;
+
+                        await fetch(`https://dss-api.s4h.edu.vn/payment/check?orderCode=${data.orderCode}`).then(res => res.json()).then(data => {
+                            if (data.status === 'PAID') {
+                                alert('Thanh toán thành công');
+                                clearInterval(interval);
+                            }
+                        }).catch(err => {
+                            console.log(err)
+                        })
+
+                        isChecking = false;
+                    }, 1000);
+
+
+                }).catch(err => {
+                    console.log('lỗi')
+                })
 
             } else {
-                alert('Vui lòng kiểm tra lại thông tin, thông tin không được để trống')
+                alert('Vui lòng kiểm tra lại, thông tin không được để trống')
             }
         }
     }
