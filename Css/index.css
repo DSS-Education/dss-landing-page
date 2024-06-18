@@ -1853,6 +1853,11 @@ fttop1412a1
 }
 
 
+#Box_1412c .d3>p::before {
+    content: 'Kết quả';
+}
+
+
 .out,
 .nextt,
 .back,
