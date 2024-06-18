@@ -165,7 +165,7 @@ vams('.payclick').forEach((t) => {
                         await fetch(`https://dss-api.s4h.edu.vn/payment/check?orderCode=${data.orderCode}`).then(res => res.json()).then(data => {
                             if (data.status === 'PAID') {
                                 vam('.tbsuc h1').innerText = 'Thanh toán thành công'
-                                vam('.tbsuc p').innerText = 'thông tin tài khoản đăng nhập đã được gửi đến email của bạn'
+                                vam('.tbsuc p').innerText = 'Thông tin tài khoản đăng nhập đã được gửi đến email của bạn'
                                 if (vam('.bi-exclamation-circle-fill') != null) {
                                     vam('.bi-exclamation-circle-fill').classList.remove('bi-exclamation-circle-fill')
                                     vam('#icon').classList.add('bi-check-circle-fill')
