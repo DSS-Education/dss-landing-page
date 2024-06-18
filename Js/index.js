@@ -137,7 +137,7 @@ vams('.payclick').forEach((t) => {
                     })
                 }).then(res => res.json()).then(data => {
                     // navigation
-                    var dotlist = vams('#Box_1412c .dot.d2')[1];
+                    var dotlist = vams('#Box_1412c .dot')[1];
                     var line = vams('#Box_1412c .line>p')[0];
                     dotlist.classList.add('acc')
                     line.setAttribute('style', 'display:block')
@@ -163,7 +163,7 @@ vams('.payclick').forEach((t) => {
                         await fetch(`https://dss-api.s4h.edu.vn/payment/check?orderCode=${data.orderCode}`).then(res => res.json()).then(data => {
                             if (data.status === 'PAID') {
                                 // navigation
-                                var dotlist = vams('#Box_1412c .dot.d2')[2];
+                                var dotlist = vams('#Box_1412c .dot')[2];
                                 var line = vams('#Box_1412c .line>p')[1];
                                 dotlist.classList.add('acc')
                                 line.setAttribute('style', 'display:block')
