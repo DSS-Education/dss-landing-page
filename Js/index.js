@@ -104,12 +104,16 @@ vams('.payclick').forEach((t) => {
     t.onclick = () => {
         let g = t.getAttribute('index')
         let f = '';
-        if (g = 1) {
+        let pid;
+        if (g = 0) {
             f = 'Gói Basic'
-        } else if (g = 2) {
+            pid = 1
+        } else if (g = 1) {
             f = 'Gói Plus'
-        } else if (g = 3 ) {
+            pid = 2
+        } else if (g = 2) {
             f = 'Gói Pro'
+            pid = 3
         }
         vam('.nextt').onclick = () => {
             let i = 0
@@ -129,7 +133,7 @@ vams('.payclick').forEach((t) => {
                         "phone": vam('.muagoiclass input[name="phone"]').value,
                         "email": vam('.muagoiclass input[name="email"]').value,
                         "location": vam('.muagoiclass input[name="address"]').value,
-                        "packageId": g
+                        "packageId": pid
                     })
                 }).then(res => res.json()).then(data => {
                     // navigation
