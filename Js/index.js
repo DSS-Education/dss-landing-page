@@ -105,13 +105,13 @@ vams('.payclick').forEach((t) => {
         let g = t.getAttribute('index')
         let f = '';
         let pid;
-        if (g = 0) {
+        if (g == 0) {
             f = 'Gói Basic'
             pid = 1
-        } else if (g = 1) {
+        } else if (g == 1) {
             f = 'Gói Plus'
             pid = 2
-        } else if (g = 2) {
+        } else if (g == 2) {
             f = 'Gói Pro'
             pid = 3
         }
