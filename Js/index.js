@@ -223,37 +223,53 @@ vam('.dssdad').onclick = () => {
     let Email = vam('#dkform input[name="email"]').value
     let Phone = vam('#dkform input[name="phone"]').value
     let Address = vam('#dkform input[name="address"]').value
-    Name = Name.split(' ')
-    let firstName = Name[Name.length - 1]
-    let lastName = Name[0]
+    console.log(Name, Email, Phone, Address);
     fetch("https://dss-api.s4h.edu.vn/public/createDemoUser", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "firstName": firstName,
-            "lastName": lastName,
+            "fullName": Name,
             "email": Email,
-            "password": "ieltshacker",
             "phone": Phone,
-            "address": Address,
+            "address": Address
         })
-    }).then(res => res.json()).then(data => {
-        vam('.tbsuc h1').innerText = 'Đăng ký thành công'
-        vam('.tbsuc p').innerText = 'Thông tin tài khoản đăng nhập đã được gửi đến email của bạn'
-        if (vam('.bi-exclamation-circle-fill') != null) {
-            vam('.bi-exclamation-circle-fill').classList.remove('bi-exclamation-circle-fill')
-            vam('#icon').classList.add('bi-check-circle-fill')
+    }).then(async res => {
+        if (res.status != 201) {
+            let data = await res.json()
+            vam('.tbsuc h1').innerText = 'Đăng ký thất bại'
+            vam('.tbsuc p').innerText = data.message
+            if (vam('.bi-check-circle-fill') != null) {
+                vam('.bi-check-circle-fill').classList.remove('bi-check-circle-fill')
+                vam('#icon').classList.add('bi-exclamation-circle-fill')
+
+            }
+            vam('#icon').setAttribute('style', 'color:red')
+            vam('.tbsuc').setAttribute('style', 'transform:translateX(0);    background-color:#f00008')
+            setTimeout(() => {
+                vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
+            }, 5000);
+            vam('.bi-x').addEventListener('click', () => {
+                vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
+            })
+        } else {
+            vam('.tbsuc h1').innerText = 'Đăng ký thành công'
+            vam('.tbsuc p').innerText = 'Thông tin tài khoản đăng nhập đã được gửi đến email của bạn'
+            if (vam('.bi-exclamation-circle-fill') != null) {
+                vam('.bi-exclamation-circle-fill').classList.remove('bi-exclamation-circle-fill')
+                vam('#icon').classList.add('bi-check-circle-fill')
+            }
+            vam('#icon').setAttribute('style', 'color:#39B75D')
+            vam('.tbsuc').setAttribute('style', 'transform:translateX(0);    background-color:#39B75D')
+            setTimeout(() => {
+                vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
+            }, 5000);
+            vam('.bi-x').addEventListener('click', () => {
+                vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
+            })
         }
-        vam('.tbsuc').setAttribute('style', 'transform:translateX(0)')
-        setTimeout(() => {
-            vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
-        }, 3000);
-        vam('.bi-x').addEventListener('click', () => {
-            vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
-        })
-        console.log(data);
+
     }).catch(err => {
         alert('Lỗi')
     })
