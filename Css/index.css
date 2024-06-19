@@ -2110,14 +2110,14 @@ button:disabled {
 /* suc */
 .tbsuc {
     position: fixed;
-    bottom: 100px;
+    top: 50px;
     right: 10px;
     width: 500px;
     height: max-content;
     background-color: #39B75D;
     display: flex;
     justify-content: end;
-    z-index: 99;
+    z-index: 9999999;
     color: var(--color-home);
     box-shadow: 0 2px 4px 0 rgba(158, 158, 158, 0), 0 2px 15px 0 rgba(0, 0, 0, 0.06);
     transform: translateX(200%);

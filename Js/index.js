@@ -253,6 +253,7 @@ vam('.dssdad').onclick = () => {
         vam('.bi-x').addEventListener('click', () => {
             vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
         })
+        console.log(data);
     }).catch(err => {
         alert('Lỗi')
     })
