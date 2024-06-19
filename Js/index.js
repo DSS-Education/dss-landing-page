@@ -216,35 +216,46 @@ vams('.payclick').forEach((t) => {
 })
 
 
-vam("#dkform").addEventListener("submit", event => {
-    // prevent submit
-    event.preventDefault();
-
-    // call as API
-    const URL = "https://docs.google.com/forms/d/1yPiTQ5wou6Y3VxV5_Bex9C7bRVVIUvY_Jp7RaktKgyg/formResponse";
-
-    let formData = new URLSearchParams();
-    formData.append('entry.214186861', document.querySelector("input[name='entry.214186861']").value);
-    formData.append('entry.1144448489', document.querySelector("input[name='entry.1144448489']").value);
-    formData.append('entry.178791406', document.querySelector("input[name='entry.178791406']").value);
-    formData.append('entry.871869972', document.querySelector("input[name='entry.871869972']").value);
-    fetch(URL + "?" + formData.toString(), {
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-        },
-        method: "post",
-        "mode": "cors"
-    });
-
-    vam('.tbsuc').setAttribute('style', 'transform:translateX(0)')
-    vam("#dkform").reset();
-    setTimeout(() => {
-        vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
-    }, 3000);
-
-});
-
 vam('.bi-x').addEventListener('click', () => {
     vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
 })
+
+vam('.dssdad').onclick = () => {
+    let Name = vam('#dkform input[name="name"]').value
+    let Email = vam('#dkform input[name="email"]').value
+    let Phone = vam('#dkform input[name="phone"]').value
+    let Address = vam('#dkform input[name="address"]').value
+    Name = Name.split(' ')
+    let firstName = Name[Name.length - 1]
+    let lastName = Name[0]
+    fetch("https://dss-api.s4h.edu.vn/public/createDemoUser", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "firstName": firstName,
+            "lastName": lastName,
+            "email": Email,
+            "password": "ieltshacker",
+            "phone": Phone,
+            "address": Address,
+        })
+    }).then(res => res.json()).then(data => {
+        vam('.tbsuc h1').innerText = 'Đăng ký thành công'
+        vam('.tbsuc p').innerText = 'Thông tin tài khoản đăng nhập đã được gửi đến email của bạn'
+        if (vam('.bi-exclamation-circle-fill') != null) {
+            vam('.bi-exclamation-circle-fill').classList.remove('bi-exclamation-circle-fill')
+            vam('#icon').classList.add('bi-check-circle-fill')
+        }
+        vam('.tbsuc').setAttribute('style', 'transform:translateX(0)')
+        setTimeout(() => {
+            vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
+        }, 3000);
+        vam('.bi-x').addEventListener('click', () => {
+            vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
+        })
+    }).catch(err => {
+        alert('Lỗi')
+    })
+}
