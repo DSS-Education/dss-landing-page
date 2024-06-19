@@ -123,7 +123,7 @@ vams('.payclick').forEach((t) => {
                 }
             })
             if (i <= 0) {
-                fetch("https://dss-api.s4h.edu.vn/payment/create", {
+                fetch("https://dss-api.s4h.edu.vn/public/createPublicPayment", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -133,7 +133,7 @@ vams('.payclick').forEach((t) => {
                         "phone": vam('.muagoiclass input[name="phone"]').value,
                         "email": vam('.muagoiclass input[name="email"]').value,
                         "location": vam('.muagoiclass input[name="address"]').value,
-                        "packageId": pid
+                        "packageNo": pid
                     })
                 }).then(res => res.json()).then(data => {
                     // navigation
