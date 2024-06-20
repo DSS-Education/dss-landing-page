@@ -2256,7 +2256,7 @@ button:disabled {
     z-index: 9999999;
 }
 
-#section button {
+#section .button206 {
     font-size: 18px;
     font-weight: 400;
     color: #fff;
@@ -2267,12 +2267,12 @@ button:disabled {
     cursor: pointer;
 }
 
-#section button:hover {
+#section .button206:hover {
     background-color: #265df2;
     color: white;
 }
 
-#section button.show-modal,
+#section .button206.show-modal,
 .modal-box {
     position: fixed;
     left: 50%;
@@ -2332,7 +2332,7 @@ button:disabled {
 
 .modal-box i {
     font-size: 70px;
-    color: #4070f4;
+    color: #00ff15;
 }
 
 .modal-box h2 {
@@ -2351,10 +2351,12 @@ button:disabled {
 
 .modal-box .buttons {
     margin-top: 25px;
+    display: flex;
 }
 
-.modal-box button {
+.modal-box .button206 {
     font-size: 14px;
-    padding: 6px 12px;
+    padding: 8px 12px;
     margin: 0 10px;
+    text-align: center;
 }
