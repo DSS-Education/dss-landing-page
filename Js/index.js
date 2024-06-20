@@ -238,6 +238,7 @@ vam('.dssdad').onclick = () => {
     }).then(async res => {
         if (res.status != 201) {
             let data = await res.json()
+
             vam('.tbsuc h1').innerText = 'Đăng ký thất bại'
             vam('.tbsuc p').innerText = data.message
             if (vam('.bi-check-circle-fill') != null) {
@@ -254,6 +255,12 @@ vam('.dssdad').onclick = () => {
                 vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
             })
         } else {
+            vam("#section").setAttribute('style', 'display:block')
+            vam(".close-btn").onclick = () => {
+                vam("#section").setAttribute('style', 'display:none')
+            }
+
+            /*
             vam('.tbsuc h1').innerText = 'Đăng ký thành công'
             vam('.tbsuc p').innerText = 'Thông tin tài khoản đăng nhập đã được gửi đến email của bạn'
             if (vam('.bi-exclamation-circle-fill') != null) {
@@ -267,10 +274,12 @@ vam('.dssdad').onclick = () => {
             }, 5000);
             vam('.bi-x').addEventListener('click', () => {
                 vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
-            })
+            })*/
         }
 
     }).catch(err => {
         alert('Lỗi')
     })
 }
+
+
