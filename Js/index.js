@@ -241,10 +241,9 @@ vam('.dssdad').onclick = () => {
 
             vam('.tbsuc h1').innerText = 'Đăng ký thất bại'
             vam('.tbsuc p').innerText = data.message
-            if (vam('.bi-check-circle-fill') != null) {
-                vam('.bi-check-circle-fill').classList.remove('bi-check-circle-fill')
+            if (vam('#icon.bi-check-circle-fill') != null) {
+                vam('#icon.bi-check-circle-fill').classList.remove('bi-check-circle-fill')
                 vam('#icon').classList.add('bi-exclamation-circle-fill')
-
             }
             vam('#icon').setAttribute('style', 'color:red')
             vam('.tbsuc').setAttribute('style', 'transform:translateX(0);    background-color:#f00008')
