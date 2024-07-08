@@ -173,9 +173,10 @@ vams('.payclick').forEach((t) => {
                             } else if (data.status === 'CANCELLED') {
                                 vam('.tbsuc h1').innerText = 'Thanh toán thất bại'
                                 vam('.tbsuc p').innerText = 'Đơn hàng của bạn đã bị hủy bỏ, vui lòng thử lại'
-                                if (vam('.bi-check-circle-fill') != null) {
-                                    vam('.bi-check-circle-fill').classList.remove('bi-check-circle-fill')
-                                    vam('#icon').classList.add('bi-exclamation-circle-fill')
+                                let icon = vam("#icon");
+                                if (icon.classList.contains('bi-check-circle-fill')) {
+                                    icon.classList.remove('bi-check-circle-fill')
+                                    icon.classList.add('bi-exclamation-circle-fill')
                                 }
                                 vam('.tbsuc').setAttribute('style', 'transform:translateX(0)')
                                 setTimeout(() => {
@@ -239,12 +240,12 @@ vam('.dssdad').onclick = () => {
 
             vam('.tbsuc h1').innerText = 'Đăng ký thất bại'
             vam('.tbsuc p').innerText = data.message
-            if (vam('.bi-check-circle-fill') != null) {
-                vam('.bi-check-circle-fill').classList.remove('bi-check-circle-fill')
-                vam('#icon').classList.add('bi-exclamation-circle-fill')
-
+            let icon = vam("#icon");
+            if (icon.classList.contains('bi-check-circle-fill')) {
+                icon.classList.remove('bi-check-circle-fill')
+                icon.classList.add('bi-exclamation-circle-fill')
             }
-            vam('#icon').setAttribute('style', 'color:red')
+            icon.setAttribute('style', 'color:red')
             vam('.tbsuc').setAttribute('style', 'transform:translateX(0);    background-color:#f00008')
             setTimeout(() => {
                 vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
