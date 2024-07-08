@@ -156,43 +156,47 @@ vams('.payclick').forEach((t) => {
                     vam('#payqr > img').setAttribute('style', 'display:none')
 
                     let isChecking = false;
-                    let interval = setInterval(async () => {
-                        if (isChecking) return;
-                        isChecking = true;
+                    vam('#checkpay78').onclick = () => {
+                        let interval = setInterval(async () => {
+                            if (isChecking) return;
+                            isChecking = true;
 
-                        await fetch(`https://dss-api.s4h.edu.vn/payment/check?orderCode=${data.orderCode}`).then(res => res.json()).then(data => {
-                            if (data.status === 'PAID') {
-                                // navigation
-                                var dotlist = vams('#Box_1412c .dot')[2];
-                                var line = vams('#Box_1412c .line>p')[1];
-                                dotlist.classList.add('acc')
-                                line.setAttribute('style', 'display:block')
+                            await fetch(`https://dss-api.s4h.edu.vn/payment/check?orderCode=${data.orderCode}`).then(res => res.json()).then(data => {
+                                if (data.status === 'PAID') {
+                                    // navigation
+                                    var dotlist = vams('#Box_1412c .dot')[2];
+                                    var line = vams('#Box_1412c .line>p')[1];
+                                    dotlist.classList.add('acc')
+                                    line.setAttribute('style', 'display:block')
 
-                                vam("#Box_1412c .content.acc").classList.remove('acc')
-                                vam('#Box_1412c .content.pay.success').classList.add('acc');
+                                    vam("#Box_1412c .content.acc").classList.remove('acc')
+                                    vam('#Box_1412c .content.pay.success').classList.add('acc');
 
-                                clearInterval(interval);
-                            } else if (data.status === 'CANCELLED') {
-                                vam('.tbsuc h1').innerText = 'Thanh toán thất bại'
-                                vam('.tbsuc p').innerText = 'Đơn hàng của bạn đã bị hủy bỏ, vui lòng thử lại'
-                                if (vam('.bi-check-circle-fill') != null) {
-                                    vam('.bi-check-circle-fill').classList.remove('bi-check-circle-fill')
-                                    vam('#icon').classList.add('bi-exclamation-circle-fill')
+                                    clearInterval(interval);
+                                } else if (data.status === 'CANCELLED') {
+                                    vam('.tbsuc h1').innerText = 'Thanh toán thất bại'
+                                    vam('.tbsuc p').innerText = 'Đơn hàng của bạn đã bị hủy bỏ, vui lòng thử lại'
+                                    if (vam('.bi-check-circle-fill') != null) {
+                                        vam('.bi-check-circle-fill').classList.remove('bi-check-circle-fill')
+                                        vam('#icon').classList.add('bi-exclamation-circle-fill')
+                                    }
+                                    vam('.tbsuc').setAttribute('style', 'transform:translateX(0)')
+                                    setTimeout(() => {
+                                        vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
+                                    }, 3000);
+                                    vam('.bi-x').addEventListener('click', () => {
+                                        vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
+                                    })
+                                } else {
+                                    console.log('hello');
                                 }
-                                vam('.tbsuc').setAttribute('style', 'transform:translateX(0)')
-                                setTimeout(() => {
-                                    vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
-                                }, 3000);
-                                vam('.bi-x').addEventListener('click', () => {
-                                    vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
-                                })
-                            }
-                        }).catch(err => {
-                            console.log(err)
-                        })
+                            }).catch(err => {
+                                console.log(err)
+                            })
 
-                        isChecking = false;
-                    }, 1000);
+                            isChecking = false;
+                        }, 3000);
+                    }
 
                     vam(".back").onclick = () => {
                         vam("#Box_1412c .content.pay").classList.remove('acc')
@@ -200,7 +204,6 @@ vams('.payclick').forEach((t) => {
                         vam('#payqr').setAttribute('style', 'display:none;')
                         vam('#payqr > canvas').setAttribute('style', 'display:none')
                         vam('#payqr > img').setAttribute('style', 'display:none')
-                        clearInterval(interval);
                     }
                 }).catch(err => {
                     console.log(err)
@@ -241,12 +244,12 @@ vam('.dssdad').onclick = () => {
 
             vam('.tbsuc h1').innerText = 'Đăng ký thất bại'
             vam('.tbsuc p').innerText = data.message
-            if (vam('.bi-check-circle-fill') != null) {
-                vam('.bi-check-circle-fill').classList.remove('bi-check-circle-fill')
-                vam('#icon').classList.add('bi-exclamation-circle-fill')
-
+            let icon = vam("#icon");
+            if (icon.classList.contains('bi-check-circle-fill')) {
+                icon.classList.remove('bi-check-circle-fill')
+                icon.classList.add('bi-exclamation-circle-fill')
             }
-            vam('#icon').setAttribute('style', 'color:red')
+            icon.setAttribute('style', 'color:red')
             vam('.tbsuc').setAttribute('style', 'transform:translateX(0);    background-color:#f00008')
             setTimeout(() => {
                 vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
