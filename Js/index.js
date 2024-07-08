@@ -156,10 +156,9 @@ vams('.payclick').forEach((t) => {
                     vam('#payqr > img').setAttribute('style', 'display:none')
 
                     let isChecking = false;
-                    let interval = setInterval(async () => {
+                    vam('#checkpay78').onclick = async () => {
                         if (isChecking) return;
                         isChecking = true;
-
                         await fetch(`https://dss-api.s4h.edu.vn/payment/check?orderCode=${data.orderCode}`).then(res => res.json()).then(data => {
                             if (data.status === 'PAID') {
                                 // navigation
@@ -171,7 +170,6 @@ vams('.payclick').forEach((t) => {
                                 vam("#Box_1412c .content.acc").classList.remove('acc')
                                 vam('#Box_1412c .content.pay.success').classList.add('acc');
 
-                                clearInterval(interval);
                             } else if (data.status === 'CANCELLED') {
                                 vam('.tbsuc h1').innerText = 'Thanh toán thất bại'
                                 vam('.tbsuc p').innerText = 'Đơn hàng của bạn đã bị hủy bỏ, vui lòng thử lại'
@@ -192,7 +190,7 @@ vams('.payclick').forEach((t) => {
                         })
 
                         isChecking = false;
-                    }, 1000);
+                    }
 
                     vam(".back").onclick = () => {
                         vam("#Box_1412c .content.pay").classList.remove('acc')
