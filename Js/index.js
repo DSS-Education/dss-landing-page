@@ -156,9 +156,10 @@ vams('.payclick').forEach((t) => {
                     vam('#payqr > img').setAttribute('style', 'display:none')
 
                     let isChecking = false;
-                    vam('#checkpay78').onclick = async () => {
+                    let interval = setInterval(async () => {
                         if (isChecking) return;
                         isChecking = true;
+
                         await fetch(`https://dss-api.s4h.edu.vn/payment/check?orderCode=${data.orderCode}`).then(res => res.json()).then(data => {
                             if (data.status === 'PAID') {
                                 // navigation
@@ -170,13 +171,13 @@ vams('.payclick').forEach((t) => {
                                 vam("#Box_1412c .content.acc").classList.remove('acc')
                                 vam('#Box_1412c .content.pay.success').classList.add('acc');
 
+                                clearInterval(interval);
                             } else if (data.status === 'CANCELLED') {
                                 vam('.tbsuc h1').innerText = 'Thanh toán thất bại'
                                 vam('.tbsuc p').innerText = 'Đơn hàng của bạn đã bị hủy bỏ, vui lòng thử lại'
-                                let icon = vam("#icon");
-                                if (icon.classList.contains('bi-check-circle-fill')) {
-                                    icon.classList.remove('bi-check-circle-fill')
-                                    icon.classList.add('bi-exclamation-circle-fill')
+                                if (vam('.bi-check-circle-fill') != null) {
+                                    vam('.bi-check-circle-fill').classList.remove('bi-check-circle-fill')
+                                    vam('#icon').classList.add('bi-exclamation-circle-fill')
                                 }
                                 vam('.tbsuc').setAttribute('style', 'transform:translateX(0)')
                                 setTimeout(() => {
@@ -191,7 +192,7 @@ vams('.payclick').forEach((t) => {
                         })
 
                         isChecking = false;
-                    }
+                    }, 1000);
 
                     vam(".back").onclick = () => {
                         vam("#Box_1412c .content.pay").classList.remove('acc')
@@ -240,12 +241,12 @@ vam('.dssdad').onclick = () => {
 
             vam('.tbsuc h1').innerText = 'Đăng ký thất bại'
             vam('.tbsuc p').innerText = data.message
-            let icon = vam("#icon");
-            if (icon.classList.contains('bi-check-circle-fill')) {
-                icon.classList.remove('bi-check-circle-fill')
-                icon.classList.add('bi-exclamation-circle-fill')
+            if (vam('.bi-check-circle-fill') != null) {
+                vam('.bi-check-circle-fill').classList.remove('bi-check-circle-fill')
+                vam('#icon').classList.add('bi-exclamation-circle-fill')
+
             }
-            icon.setAttribute('style', 'color:red')
+            vam('#icon').setAttribute('style', 'color:red')
             vam('.tbsuc').setAttribute('style', 'transform:translateX(0);    background-color:#f00008')
             setTimeout(() => {
                 vam('.tbsuc').setAttribute('style', 'transform:translateX(200%)')
